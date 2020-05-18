@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * Class Type
@@ -16,4 +17,9 @@ class Type extends Model
         'id',
         'title'
     ];
+
+    public function typeProperties(): HasMany
+    {
+        return $this->hasMany(TypeProperty::class);
+    }
 }
