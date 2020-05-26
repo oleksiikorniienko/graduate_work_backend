@@ -56,7 +56,7 @@ class KNearestNeighborsSuspended implements Classifier
 
         $predictions = array_map(function ($distances) {
             return array_reduce($distances, function ($acc, $distance) {
-                return $acc + (1 / $distance);
+                return $distance ? $acc + (1 / $distance) : $acc;
             }, 0);
         }, $predictions);
 

@@ -14,7 +14,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Type extends Model
 {
     protected $fillable = [
-        'id',
         'title'
     ];
 

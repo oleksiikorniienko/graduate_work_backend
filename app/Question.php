@@ -3,7 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * Class Question
@@ -20,8 +21,13 @@ class Question extends Model
         'property_id'
     ];
 
-    public function property(): HasOne
+    public function answers(): HasMany
     {
-        return $this->hasOne(Property::class);
+        return $this->hasMany(Answers::class);
+    }
+
+    public function property(): BelongsTo
+    {
+        return $this->belongsTo(Property::class);
     }
 }
