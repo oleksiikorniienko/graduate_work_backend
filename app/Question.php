@@ -12,18 +12,19 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property integer $id
  * @property integer $title
  * @property integer $property_id
+ * @property string $created_at
+ * @property string $updated_at
  */
 class Question extends Model
 {
     protected $fillable = [
-        'id',
         'title',
         'property_id'
     ];
 
     public function answers(): HasMany
     {
-        return $this->hasMany(Answers::class);
+        return $this->hasMany(Answers::class, 'question_id');
     }
 
     public function property(): BelongsTo

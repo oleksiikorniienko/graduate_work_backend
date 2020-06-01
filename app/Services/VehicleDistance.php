@@ -28,7 +28,6 @@ class VehicleDistance implements Distance
             throw new InvalidArgumentException('Size of given arrays does not match');
         }
 
-        $count = count($a);
         $distance = 0;
 
         for ($i = 0; $i < $count; $i++) {
